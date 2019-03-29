@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
@@ -60,10 +61,7 @@ public class ThirdActivity extends AppCompatActivity {
         widgets();
         readIntentInfo();
         SetPageValues();
-
-
-
-
+        
     }
     /*
      * FUNCTION : widgets
@@ -138,4 +136,16 @@ public class ThirdActivity extends AppCompatActivity {
         numberOfRoomtxt.setText(String.valueOf(numOfRooms));;
 
     }
+
+    public void confirmBtn_OnClick (View view)
+    {
+        TextView tview = (TextView)findViewById(R.id.fName_txtBox);
+        String firstName = tview.getText().toString();
+
+        TextView tview2 = (TextView)findViewById(R.id.lName_txtBox);
+        String lastName = tview2.getText().toString();
+
+        Toast.makeText(getApplicationContext(),firstName + " " + lastName,Toast.LENGTH_SHORT).show();
+    }
+
 }
