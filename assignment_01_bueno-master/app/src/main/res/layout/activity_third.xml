@@ -176,7 +176,6 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="101dp"
-        android:onClick="confirmBtn_OnClick"
         android:text="Confirm" />
 
     <EditText
@@ -211,12 +210,12 @@
         android:id="@+id/lName_txtBox"
         android:layout_width="215dp"
         android:layout_height="46dp"
+        android:layout_below="@+id/fName_txtBox"
         android:layout_alignEnd="@+id/confirmBtn"
         android:layout_alignBottom="@+id/textView11"
-        android:layout_alignParentTop="true"
         android:layout_marginStart="3dp"
         android:layout_marginLeft="3dp"
-        android:layout_marginTop="278dp"
+        android:layout_marginTop="23dp"
         android:layout_marginEnd="-67dp"
         android:layout_marginBottom="-5dp"
         android:layout_toEndOf="@+id/textView11"
