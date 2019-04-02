@@ -23,11 +23,7 @@
     <autoscroll-to-editor value="false" />
     <autoscroll-from-editor value="true" />
     <show-object-properties value="true" />
-    <loaded-nodes>
-      <connection connection-id="9d3a7997-6cb2-49b2-bb7b-70eb6007bf32">
-        <schema name="main" object-types="dataset trigger, column, constraint, table, index" />
-      </connection>
-    </loaded-nodes>
+    <loaded-nodes />
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="9d3a7997-6cb2-49b2-bb7b-70eb6007bf32">
@@ -35,9 +31,7 @@
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
-    <open-files>
-      <object connection-id="9d3a7997-6cb2-49b2-bb7b-70eb6007bf32" object-ref="schemas/main/tables/orders" />
-    </open-files>
+    <open-files />
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
     <connection id="9d3a7997-6cb2-49b2-bb7b-70eb6007bf32" />
@@ -83,7 +77,7 @@
           <port value="" />
           <database value="" />
           <files>
-            <file path="D:\orders" schema="main" />
+            <file path="D:\orders3" schema="main" />
           </files>
           <os-authentication value="false" />
           <empty-authentication value="false" />
@@ -114,7 +108,7 @@
           <session-management value="true" />
           <ddl-file-binding value="true" />
           <database-logging value="false" />
-          <connect-automatically value="true" />
+          <connect-automatically value="false" />
           <restore-workspace value="true" />
           <restore-workspace-deep value="true" />
           <environment-type value="default" />

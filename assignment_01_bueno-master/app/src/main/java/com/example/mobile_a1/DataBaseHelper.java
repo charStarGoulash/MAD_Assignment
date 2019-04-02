@@ -55,49 +55,10 @@ public class DataBaseHelper extends SQLiteOpenHelper
         onCreate(db);
     }
 
-    public boolean addData(int COL, String item)
+    public boolean addData(ContentValues contentValues)
     {
         SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues contentValues = new ContentValues();
 
-        switch(COL){
-            case 2://first name
-                contentValues.put(COL2, item);
-                break;
-            case 3://last name
-                contentValues.put(COL3, item);
-                break;
-            case 4://hotel
-                contentValues.put(COL4, item);
-                break;
-            case 5://checkin
-                contentValues.put(COL5, item);
-                break;
-            case 6://checkout
-                contentValues.put(COL6, item);
-                break;
-            case 7://numNights
-                contentValues.put(COL7, item);
-                break;
-            case 8://numGuests
-                contentValues.put(COL8, item);
-                break;
-            case 9://numRooms
-                contentValues.put(COL9, item);
-                break;
-            case 10://price
-                contentValues.put(COL10, item);
-                break;
-            case 11://hst
-                contentValues.put(COL11, item);
-                break;
-            case 12://fullPrice
-                contentValues.put(COL12, item);
-                break;
-            default: //For all other cases, do this        break;
-        }
-
-        //Log.d (TAG, "addData : Adding " + item + " to " + COL + " in " + TABLE_NAME);
 
         long result = db.insert(TABLE_NAME, null, contentValues);
 
