@@ -11,6 +11,8 @@ import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.os.Handler;
+import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -18,6 +20,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.DatePicker;
+import android.widget.ProgressBar;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -58,6 +61,14 @@ public class SecondActivity extends AppCompatActivity {
     private SeekBar adultsSeekBar;
     private SeekBar childrenSeekBar;
 
+    //Progbar
+    private ProgressBar mProgBarHorz;
+    private int mProgBarStatus=0;
+    private TextView timeRemaining;
+    private int timeLeft=30;
+
+    private Handler handle = new Handler();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,6 +84,31 @@ public class SecondActivity extends AppCompatActivity {
         // set the title
         setTitle(hotel);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        mProgBarHorz = (ProgressBar) findViewById(R.id.ProgBar);
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while (mProgBarStatus<100){
+                    mProgBarStatus++;
+                    SystemClock.sleep(200);
+                    handle.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            mProgBarHorz.setProgress(mProgBarStatus);
+                            //timeRemaining.setText("Time Remaining in Session " +timeLeft+ " Seconds" );
+                            //timeLeft--;
+                        }
+                    });
+                }
+                if(mProgBarStatus==100)
+                {
+                    finish();
+                }
+
+
+            }
+        }).start();
     }
     /*
      * FUNCTION : readIntentInfo
@@ -179,7 +215,7 @@ public class SecondActivity extends AppCompatActivity {
         }
 
         orderTotal.setText("Order Total: $" + String.valueOf(bookingPrice));
-
+        mProgBarStatus=0;
     }
     /*
        Function:getDaysBetween

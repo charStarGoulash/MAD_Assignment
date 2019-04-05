@@ -20,5 +20,7 @@
     <string name="adults">Adults:</string>
     <string name="_1">1</string>
     <string name="children">Children:</string>
+    <string name="SessionTime">Time Remaining in Session </string>
+
 
 </resources>
