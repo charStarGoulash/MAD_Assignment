@@ -108,6 +108,7 @@ public class ThirdActivity extends AppCompatActivity {
                 }
                 else
                 {
+                    boolean checker;
                     //Below I am adding all the values to a ContentValues data structure which will be
                     //used to insert into the SQLite database on the device
                     contentValues.put(COL2 , firstName );
@@ -122,7 +123,14 @@ public class ThirdActivity extends AppCompatActivity {
                     contentValues.put(COL11, String.valueOf(theHst) );
                     contentValues.put(COL12, String.valueOf(thePriceWithTax) );
 
-                    AddData(contentValues);
+                    checker = AddData(contentValues);
+
+                    if (checker)
+                    {
+                        Intent intent = new Intent(ThirdActivity.this, FourthActivity.class);
+                        startActivity(intent);
+
+                    }
 
                 }
 
@@ -135,17 +143,19 @@ public class ThirdActivity extends AppCompatActivity {
     //Description : This function will insert the data in the passed in ContentValues into the database
     //Parameters: ContentValues contentValues - The column names and data values for database.
     //Returns : None
-    public void AddData (ContentValues contentValues)
+    public boolean AddData (ContentValues contentValues)
     {
        boolean insertData = theDBHelper.addData(contentValues);
 
        if (insertData)
        {
            Toast.makeText(getApplicationContext(), "Success", Toast.LENGTH_SHORT).show();
+           return true;
        }
        else
        {
            Toast.makeText(getApplicationContext(), "Fail", Toast.LENGTH_SHORT).show();
+           return false;
        }
     }
 
@@ -222,48 +232,5 @@ public class ThirdActivity extends AppCompatActivity {
         numberOfRoomtxt.setText(String.valueOf(numOfRooms));
 
     }
-    /*public void confirmBtn_OnClick (View view)
-    {
-        EditText tview = (EditText)findViewById(R.id.fName_txtBox);
-        String firstName = tview.getText().toString();
-
-        EditText tview2 = (EditText)findViewById(R.id.lName_txtBox);
-        String lastName = tview2.getText().toString();
-
-        if (firstName.length() == 0)
-        {
-            tview.setError("Must Enter First Name");
-        }
-        else if (lastName.length() == 0)
-        {
-            tview2.setError("Must Enter Last Name");
-        }
-        else
-        {
-            *//*AddData(2, firstName );
-            AddData(3, lastName );
-            AddData(4, hotel );
-            AddData(5, checkIn );
-            AddData(6, checkout );
-            AddData(7, String.valueOf(daysSpent));
-            AddData(8, String.valueOf(numOfGuest));
-            AddData(9, String.valueOf(numOfRooms) );
-            AddData(10, String.valueOf(price) );
-            AddData(11, String.valueOf(theHst) );
-            AddData(12, String.valueOf(thePriceWithTax) );
-           /* theDBHelper.addData(2, firstName );
-            theDBHelper.addData(3, lastName );
-            theDBHelper.addData(4, hotel );
-            theDBHelper.addData(5, checkIn );
-            theDBHelper.addData(6, checkout );
-            theDBHelper.addData(7, String.valueOf(daysSpent));
-            theDBHelper.addData(8, String.valueOf(numOfGuest));
-            theDBHelper.addData(9, String.valueOf(numOfRooms) );
-            theDBHelper.addData(10, String.valueOf(price) );
-            theDBHelper.addData(11, String.valueOf(theHst) );
-            theDBHelper.addData(12, String.valueOf(thePriceWithTax) );*//*
-        }
-
-    }*/
 
 }
