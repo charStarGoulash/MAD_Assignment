@@ -69,9 +69,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id)
             {
-                Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+                Intent intent = new Intent(MainActivity.this, HotelDetailActivity.class);
                 intent.putExtra("hotel", hotelList.get(position).getHotelName());
                 intent.putExtra("price", hotelList.get(position).getHotelPrice());
+                intent.putExtra("rating", Double.toString(hotelList.get(position).getHotelRating()));
+                intent.putExtra("hotelImage", hotelList.get(position).getHotelImage());
                 startActivity(intent);
             }
         });
